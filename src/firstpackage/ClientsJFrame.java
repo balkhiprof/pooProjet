@@ -372,10 +372,10 @@ public class ClientsJFrame extends javax.swing.JFrame {
         
         
         if (email.isEmpty()){
-            Clients cli = new Clients(nom, prenom, adresse, tel, compte, Double.parseDouble(solde));
+            Clients cli = new Clients(nom, prenom, adresse, tel);
             JOptionPane.showMessageDialog(this, "Client ajouté avec succés");
         }else{
-            Clients cli = new Clients(nom, prenom, adresse, tel, email, compte, Double.parseDouble(solde));
+            Clients cli = new Clients(nom, prenom, adresse, tel, email);
             JOptionPane.showMessageDialog(this, "Client ajouté avec succés");
         }
     }//GEN-LAST:event_btnAjouterActionPerformed
