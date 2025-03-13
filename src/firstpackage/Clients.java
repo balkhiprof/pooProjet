@@ -10,23 +10,30 @@ package firstpackage;
  */
 public class Clients {
     //variables d'instances
-    private String nom,prenom,adresse,tel,email;
+    private String nom,prenom,adresse,tel,email,compte;
+    private double solde;
     //Constructeurs
 
-    public Clients(String nom, String prenom, String adresse, String tel) {
+    public Clients(String nom, String prenom, String adresse, String tel, String compte, double solde) {
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
         this.tel = tel;
+        this.compte = compte;
+        this.solde = solde;
     }
 
-    public Clients(String nom, String prenom, String adresse, String tel, String email) {
+    public Clients(String nom, String prenom, String adresse, String tel, String email, String compte, double solde) {
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
         this.tel = tel;
         this.email = email;
+        this.compte = compte;
+        this.solde = solde;
     }
+
+    
     //Getters and setters
 
     public String getNom() {
@@ -67,6 +74,22 @@ public class Clients {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getCompte() {
+        return compte;
+    }
+
+    public void setCompte(String compte) {
+        this.compte = compte;
+    }
+
+    public double getSolde() {
+        return solde;
+    }
+
+    public void setSolde(double solde) {
+        this.solde = solde;
     }
     
     

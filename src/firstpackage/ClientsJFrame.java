@@ -367,11 +367,15 @@ public class ClientsJFrame extends javax.swing.JFrame {
         String adresse = txtAdresse.getText();
         String tel = txtTel.getText();
         String email = txtEmail.getText();
+        String compte = txtCompteEpargne.getText();
+        String solde = txtSoldeEpargne.getText();
+        
+        
         if (email.isEmpty()){
-            Clients cli = new Clients(nom, prenom, adresse, tel);
+            Clients cli = new Clients(nom, prenom, adresse, tel, compte, Double.parseDouble(solde));
             JOptionPane.showMessageDialog(this, "Client ajouté avec succés");
         }else{
-            Clients cli = new Clients(nom, prenom, adresse, tel, email);
+            Clients cli = new Clients(nom, prenom, adresse, tel, email, compte, Double.parseDouble(solde));
             JOptionPane.showMessageDialog(this, "Client ajouté avec succés");
         }
     }//GEN-LAST:event_btnAjouterActionPerformed
