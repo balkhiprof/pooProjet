@@ -11,10 +11,9 @@ import javax.swing.JOptionPane;
  * @author Balkhi
  */
 public class ClientsJFrame extends javax.swing.JFrame {
-
-    /**
-     * Creates new form ClientsJFrame
-     */
+    Clients cli;
+    CompteParticulier cmp;
+    
     public ClientsJFrame() {
         initComponents();
     }
@@ -155,14 +154,29 @@ public class ClientsJFrame extends javax.swing.JFrame {
         });
 
         btnNouveauCompte.setText("Nouveau Compte");
+        btnNouveauCompte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNouveauCompteActionPerformed(evt);
+            }
+        });
 
         jLabel13.setText("Montant");
 
         txtMontant.setText("txtMontant");
 
         btnDeposer.setText("Déposer");
+        btnDeposer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeposerActionPerformed(evt);
+            }
+        });
 
         btnRetirer.setText("Retirer");
+        btnRetirer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRetirerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -362,27 +376,70 @@ public class ClientsJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNouveauActionPerformed
 
     private void btnAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAjouterActionPerformed
-        String nom = txtNom.getText();
-        String prenom = txtPrenom.getText();
-        String adresse = txtAdresse.getText();
-        String tel = txtTel.getText();
-        String email = txtEmail.getText();
-        String compte = txtCompteEpargne.getText();
-        String solde = txtSoldeEpargne.getText();
-        
-        
+        String nom,prenom,adresse,tel,email;
+        nom = txtNom.getText();
+        prenom = txtPrenom.getText();
+        adresse = txtAdresse.getText();
+        tel = txtTel.getText();
+        email = txtEmail.getText();
+        //Clients cli;
         if (email.isEmpty()){
-            Clients cli = new Clients(nom, prenom, adresse, tel, compte, Double.parseDouble(solde));
+            cli = new Clients(nom, prenom, adresse, tel);
             JOptionPane.showMessageDialog(this, "Client ajouté avec succés");
         }else{
-            Clients cli = new Clients(nom, prenom, adresse, tel, email, compte, Double.parseDouble(solde));
+            cli = new Clients(nom, prenom, adresse, tel, email);
             JOptionPane.showMessageDialog(this, "Client ajouté avec succés");
-        }
+        }       
+        
+      
     }//GEN-LAST:event_btnAjouterActionPerformed
 
     private void btnNouveauKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnNouveauKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNouveauKeyPressed
+
+    private void btnNouveauCompteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNouveauCompteActionPerformed
+       int numcompte = Integer.parseInt(txtCompteParticulier.getText());
+       double solde = Double.parseDouble(txtSolde.getText());
+       String email = txtEmail.getText();
+       if (email.isEmpty()){
+        cmp = new CompteParticulier(numcompte, solde, 
+               cli.getNom(), cli.getPrenom(), cli.getAdresse(), cli.getTel());
+        JOptionPane.showMessageDialog(this, "Compte créer avec succés");
+       }
+       else{
+         cmp = new CompteParticulier(numcompte, solde, 
+               cli.getNom(), cli.getPrenom(), 
+                   cli.getAdresse(), cli.getTel(),cli.getEmail());
+          JOptionPane.showMessageDialog(this, "Compte créer avec succés");
+       }
+    }//GEN-LAST:event_btnNouveauCompteActionPerformed
+
+    private void btnDeposerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeposerActionPerformed
+       String montant = txtMontant.getText();
+       if (montant.isEmpty()){
+           JOptionPane.showMessageDialog(this, "Vous devez saisir le montant");
+       }else{
+           cmp.verser(Double.parseDouble(montant));
+           txtSolde.setText(String.valueOf(cmp.getSolde()));
+           JOptionPane.showMessageDialog(this, "Montant versé avec succés");
+       }
+    }//GEN-LAST:event_btnDeposerActionPerformed
+
+    private void btnRetirerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetirerActionPerformed
+        String montant = txtMontant.getText();
+        if(montant.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Vous devez saisir le montant");
+        }else{
+            boolean resultat = cmp.retirer(Double.parseDouble(montant));
+            if (resultat==true){
+               txtSolde.setText(String.valueOf(cmp.getSolde()));
+               JOptionPane.showMessageDialog(this, "Montant retirer avec succés");
+            }else{
+               JOptionPane.showMessageDialog(this, "impossible de retirer ce montant");
+            }
+        }
+    }//GEN-LAST:event_btnRetirerActionPerformed
 
     /**
      * @param args the command line arguments

@@ -249,6 +249,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Nouveau Compte"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNouveauCompteActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>
@@ -264,11 +267,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="D&#xe9;poser"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeposerActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnRetirer">
           <Properties>
             <Property name="text" type="java.lang.String" value="Retirer"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRetirerActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
