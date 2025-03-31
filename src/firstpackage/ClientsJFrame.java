@@ -161,6 +161,11 @@ public class ClientsJFrame extends javax.swing.JFrame {
         txtMontant.setText("txtMontant");
 
         btnDeposer.setText("Déposer");
+        btnDeposer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeposerActionPerformed(evt);
+            }
+        });
 
         btnRetirer.setText("Retirer");
 
@@ -383,6 +388,10 @@ public class ClientsJFrame extends javax.swing.JFrame {
     private void btnNouveauKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnNouveauKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNouveauKeyPressed
+
+    private void btnDeposerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeposerActionPerformed
+        JOptionPane.showMessageDialog(this, "Ceci est juste un test");
+    }//GEN-LAST:event_btnDeposerActionPerformed
 
     /**
      * @param args the command line arguments
