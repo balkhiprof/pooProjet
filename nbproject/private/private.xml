@@ -4,9 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Balkhi/Documents/NetBeansProjects/pooProjet/src/firstpackage/ClientsJFrame.java</file>
-            <file>file:/C:/Users/Balkhi/Documents/NetBeansProjects/pooProjet/src/firstpackage/CompteParticulier.java</file>
-            <file>file:/C:/Users/Balkhi/Documents/NetBeansProjects/pooProjet/test/</file>
-            <file>file:/C:/Users/Balkhi/Documents/NetBeansProjects/pooProjet/src/firstpackage/Clients.java</file>
+            <file>file:/C:/Users/Balkhi/Documents/NetBeansProjects/pooProjet/src/heritagepackage/Point.java</file>
+            <file>file:/C:/Users/Balkhi/Documents/NetBeansProjects/pooProjet/src/heritagepackage/PointCol.java</file>
+            <file>file:/C:/Users/Balkhi/Documents/NetBeansProjects/pooProjet/src/heritagepackage/PointJFrame.java</file>
         </group>
     </open-files>
 </project-private>
